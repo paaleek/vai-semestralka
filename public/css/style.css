@@ -1,0 +1,71 @@
+:root {
+    --main_red: #b23939;
+}
+
+
+@font-face {
+    font-family: 'above_demoregular';
+    src: url('../fonts/abovedemoregular-ljmd-webfont.woff2') format('woff2'),
+        url('../fonts/abovedemoregular-ljmd-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background-color: #54575D;
+    color: white;
+    /*font-family: 'Asap', sans-serif;*/
+    font-family: 'Source Code Pro', monospace;
+}
+
+.main_color {
+    color: var(--main_red);
+}
+
+.top_menu {
+    border-bottom-style: solid;
+    border-color: var(--main_red);
+}
+.top_menu a {
+    text-decoration: none;
+}
+
+.logo_text {
+    font-family: 'above_demoregular';
+}
+
+.g-menu {
+    font-size: 1.3em;
+}
+
+.logo_padding {
+    padding-left: 5%;
+}
+
+.user {
+    text-align: right;
+    margin-top: 0.5%;
+}
+
+.menu {
+    font-family: above_demoregular;
+    text-decoration: none;
+    color: white;
+}
+
+.footer {
+    height: 50px;
+    text-align: center;
+    background-color: #1a1b1e;
+    color: white;
+}
+
+.wrapper{
+    min-height: calc(100vh - 50px);
+}
+
+.log_in{
+    text-decoration: none;
+    color:#b23939;
+    padding-top: 2%;
+}
