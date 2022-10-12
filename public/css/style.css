@@ -11,6 +11,15 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'hackedregular';
+    src: url('../fonts/hacked-webfont.woff2') format('woff2'),
+    url('../fonts/hacked-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body{
     background-color: #54575D;
     color: white;
@@ -68,4 +77,29 @@ body{
     text-decoration: none;
     color:#b23939;
     padding-top: 2%;
+}
+
+
+@media (max-width: 576px) {
+    .reviews img{
+        width:250px;
+        height: auto;
+    }
+}
+
+.nadpis_recenzia{
+    font-family: 'hackedregular';
+    font-size: 1.3em;
+    color: var(--main_red);
+    text-decoration: none;
+}
+
+.h_size{
+    font-size: 1.2em;
+    color: var(--main_red);
+}
+
+.nadpis_hra{
+    font-family: 'hackedregular';
+    font-size: 2em;
 }

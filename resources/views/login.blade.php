@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="row mt-2">
+    <div class="row no-gutters mt-2">
         <div class="col-3"></div>
 
         <div class="col-6 bg-dark">
-            <div class="log_in">Prihlásenie</div>
+            <p class="log_in ml-4">Prihlásenie</p>
             <div class="login">
                 <form class="px-4 py-3" action="" method="post">
                     <div class="form-group">

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ReviewsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,10 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
+
+Route::get('/reviews/{id}', [ReviewsController::class, 'show'])->whereNumber('id')->name('reviews.show');
 
 
 

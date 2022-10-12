@@ -36,7 +36,7 @@
                     </li>
 
                     <li class="nav-item hvr-overline-from-center">
-                        <a class="nav-link" href="">recenzie</a>
+                        <a class="nav-link" href="{{ @route('reviews') }}">recenzie</a>
                     </li>
 
                     <li class="nav-item hvr-overline-from-center">
