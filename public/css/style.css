@@ -103,3 +103,9 @@ body{
     font-family: 'hackedregular';
     font-size: 2em;
 }
+
+.current_page {
+    background-color: var(--main_red);
+}
+
+

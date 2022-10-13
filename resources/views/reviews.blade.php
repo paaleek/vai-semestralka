@@ -39,4 +39,6 @@
 
     @endforeach
 
+    {{ $reviews->links() }}
+
 @endsection
