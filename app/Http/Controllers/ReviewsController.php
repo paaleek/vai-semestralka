@@ -11,7 +11,7 @@ class ReviewsController extends Controller
 
     public function index()
     {
-        $reviews = Reviews::orderBy('date_created_at', 'DESC')->paginate(5);
+        $reviews = Reviews::orderBy('created_at', 'DESC')->paginate(5);
         //$reviews = DB::table('reviews')->get();
         return view('reviews')->with(compact('reviews'));
     }

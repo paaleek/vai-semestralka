@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Reviews extends Model
 {
     use HasFactory;
+    protected $fillable = ['id', 'header','main_content','shop', 'trailer','score', 'small_img', 'big_img'];
 }

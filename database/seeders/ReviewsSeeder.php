@@ -29,8 +29,8 @@ Provizórny tábor, ktorý priebežne mení svoju polohu, je miestom, kam sa neu
                 'trailer' => 'https://www.youtube.com/watch?v=3eDw6PqKYHs',
                 'big_img' => 'red_dead_v.jpg',
                 'score' => 10,
-                'date_created_at' => now(),
-
+                'created_at' => now(),
+                'updated_at' => now(),
             ];
             $reviews[] = $review;
         }

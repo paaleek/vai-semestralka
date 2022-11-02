@@ -108,4 +108,14 @@ body{
     background-color: var(--main_red);
 }
 
+.n_mala_img{
+    width: 100px;
+    height: auto;
+}
+
+.n_main_img{
+    width: 150px;
+    height: auto;
+}
+
 

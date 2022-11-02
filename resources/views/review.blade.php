@@ -16,7 +16,7 @@
                     </div>
                 </div>
 
-                <small class="text-muted">Publikované: {{ $review->date_created_at }}</small>
+                <small class="text-muted">Publikované: {{ $review->created_at }}</small>
                 <div class="animated slideInUp">{{ $review->main_content }}</div>
             </div>
         </div>
