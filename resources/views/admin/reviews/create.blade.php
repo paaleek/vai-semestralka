@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
 
-        <form action="{{ route('admin.reviews.store') }}" method="POST">
+        <form action="{{ route('admin.reviews.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('put')
             @include('admin.reviews._form')

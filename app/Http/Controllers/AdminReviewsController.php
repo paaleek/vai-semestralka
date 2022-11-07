@@ -30,14 +30,33 @@ class AdminReviewsController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'header' => 'required|string',
             'main_content' => 'required|string',
             'score' => 'required|numeric',
-            'shop' => 'nullable',
-            'trailer' => 'nullable'
+            'shop' => 'nullable|url',
+            'trailer' => 'nullable|url',
+            'small_img' => 'nullable|mimes:jpeg,bmp,png',
+            'big_img' => 'nullable|mimes:jpeg,bmp,png',
         ]);
-        Reviews::create($request->all());
+
+        if ($request->hasFile('small_img')) {
+            $file = $request->file('small_img');
+            $filename = $request->small_img->getClientOriginalName();
+
+            $file->move(public_path('img/reviews/'), $filename);
+            $data['small_img'] = $filename;
+        }
+
+        if ($request->hasFile('big_img')) {
+            $file = $request->file('big_img');
+            $filename = $request->big_img->getClientOriginalName();
+
+            $file->move(public_path('img/reviews/'), $filename);
+            $data['big_img'] = $filename;
+        }
+
+        Reviews::create($data);
         return redirect()->route('admin.reviews.index')->with('message', 'Review created successfully');
     }
 
@@ -63,14 +82,34 @@ class AdminReviewsController extends Controller
     public function update(Request $request, $id)
     {
         $review = Reviews::findOrFail($id);
-        $request->validate([
+        $data = $request->validate([
             'header' => 'required|string',
             'main_content' => 'required|string',
             'score' => 'required|numeric',
             'shop' => 'nullable',
-            'trailer' => 'nullable'
+            'trailer' => 'nullable',
+            'small_img' => 'nullable|mimes:jpeg,bmp,png',
+            'big_img' => 'nullable|mimes:jpeg,bmp,png',
         ]);
-        $review->update($request->except('updated_at'));
+
+        if ($request->hasFile('small_img')) {
+            $file = $request->file('small_img');
+            $filename = $request->small_img->getClientOriginalName();
+
+            $file->move(public_path('img/reviews/'), $filename);
+            $data['small_img'] = $filename;
+        }
+
+        if ($request->hasFile('big_img')) {
+            $file = $request->file('big_img');
+            $filename = $request->big_img->getClientOriginalName();
+
+            $file->move(public_path('img/reviews/'), $filename);
+            $data['big_img'] = $filename;
+        }
+
+
+        $review->update($data);
         return redirect()->route('admin.reviews.index')->with('message', 'Review updated successfully');
     }
 
