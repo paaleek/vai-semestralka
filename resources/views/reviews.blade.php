@@ -6,6 +6,7 @@
     <div class="mt-3">
 
     </div>
+
     @foreach($reviews as $review)
 
         <div class="container reviews animated slideInLeft">
@@ -14,7 +15,7 @@
                     <div class="card mb-3 bg-dark" style="">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src=" {{ @asset('img/reviews') }}/{{ $review->small_img }} " class="card-img hvr-grow" alt="{{ $review->header }}">
+                                <img onclick="return enlarge(this)" src=" {{ @asset('img/reviews') }}/{{ $review->small_img }} " class="card-img hvr-grow" alt="{{ $review->header }}">
 
 
                             </div>
@@ -39,5 +40,15 @@
     @endforeach
 
     {{ $reviews->links() }}
+
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+
+        <span class="close">&times;</span>
+
+        <img class="modal-content" id="img01" alt="modal-img">
+
+    </div>
 
 @endsection

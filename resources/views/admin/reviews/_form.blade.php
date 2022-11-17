@@ -3,8 +3,8 @@
     <input type="hidden" name="id" value="{{ old('id', $review->id) }}"><br>
 
     <div class="form-group row">
-        <label for="header" class="col-form-label">Nadpis</label>
-        <input type="text" class="form-control @error('header') is-invalid @enderror" name="header" value="{{ old('header', $review->header) }}">
+        <label for="header" class="col-form-label">Nadpis*</label>
+        <input id="header" type="text" class="form-control @error('header') is-invalid @enderror" name="header" value="{{ old('header', $review->header) }}">
 
         @error('header')
         <div class="invalid-feedback">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="main_content" class="col-form-label">Obsah</label>
+        <label for="main_content" class="col-form-label">Obsah*</label>
         <textarea class="form-control @error('main_content') is-invalid @enderror" name="main_content" id="editor1" cols="20" rows="15">{{ old('main_content', $review->main_content) }}</textarea>
 
         @error('main_content')
@@ -25,7 +25,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="score" class="col-form-label">Hodnotenie</label>
+        <label for="score" class="col-form-label">Hodnotenie*</label>
         <input type="text" class="form-control @error('score') is-invalid @enderror" name="score" value="{{ old('score', $review->score) }}">
 
         @error('score')

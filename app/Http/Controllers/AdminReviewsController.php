@@ -10,7 +10,7 @@ class AdminReviewsController extends Controller
 
     public function index()
     {
-        $reviews = Reviews::all();
+        $reviews = Reviews::orderBy('updated_at', 'desc')->get();
         return view('admin.reviews.index')->with(compact('reviews'));
     }
 

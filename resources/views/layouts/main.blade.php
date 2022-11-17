@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="{{ @asset('css/style.css') }}">
 
+    <script src="{{ @asset('js/main.js') }}"></script>
+
     <title>@yield('title', 'Ghydeout')</title>
 </head>
 <body>
@@ -27,7 +29,7 @@
     @yield('content')
 </div>
 <div class="push p-0 m-0"></div>
-    <footer class="w-100 p-2 footer">Pavol Galčík || 2022-2023</footer>
+    <footer class="w-100 p-0 footer">Pavol Galčík || 2022-2023</footer>
 </body>
 {{--    <script src="//cdn.ckeditor.com/4.13.1/basic/ckeditor.js"></script> <!-- textovy editor-->--}}
 

@@ -10,7 +10,7 @@
             </div>
         @endif
         <a  class="btn btn-primary m-2" href="{{ route('admin.reviews.create') }}">Nový</a>
-        <table class="table">
+        <table class="table p-0">
             <thead>
             <tr>
                 <th>ID</th>
