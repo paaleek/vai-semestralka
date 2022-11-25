@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReviewRequest;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
 
@@ -28,35 +29,27 @@ class AdminReviewsController extends Controller
         return view('admin.reviews.create')->with(compact('review'));
     }
 
-    public function store(Request $request)
+    public function store(ReviewRequest $request)
     {
-        $data = $request->validate([
-            'header' => 'required|string',
-            'main_content' => 'required|string',
-            'score' => 'required|numeric',
-            'shop' => 'nullable|url',
-            'trailer' => 'nullable|url',
-            'small_img' => 'nullable|mimes:jpeg,bmp,png',
-            'big_img' => 'nullable|mimes:jpeg,bmp,png',
-        ]);
+        $validatedData = $request->validated();
 
         if ($request->hasFile('small_img')) {
             $file = $request->file('small_img');
-            $filename = $request->small_img->getClientOriginalName();
+            $filename = date('Y-m-d-H_i_s').'_'.$request->small_img->getClientOriginalName();
 
             $file->move(public_path('img/reviews/'), $filename);
-            $data['small_img'] = $filename;
+            $validatedData['small_img'] = $filename;
         }
 
         if ($request->hasFile('big_img')) {
             $file = $request->file('big_img');
-            $filename = $request->big_img->getClientOriginalName();
+            $filename = date('Y-m-d-H_i_s').'_'.$request->big_img->getClientOriginalName();
 
             $file->move(public_path('img/reviews/'), $filename);
-            $data['big_img'] = $filename;
+            $validatedData['big_img'] = $filename;
         }
 
-        Reviews::create($data);
+        Reviews::create($validatedData);
         return redirect()->route('admin.reviews.index')->with('message', 'Review created successfully');
     }
 

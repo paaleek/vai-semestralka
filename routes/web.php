@@ -17,7 +17,7 @@ use App\Http\Controllers\ReviewsController;
 |
 */
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+//Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
 

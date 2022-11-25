@@ -12,6 +12,13 @@
         </a>
     </div>
 
+    <div class="col-2 user animated bounceInRight">
+        <a class="main_color log_in" href="{{ @route('register') }}">
+            <span class="icon-user"></span>
+            Register
+        </a>
+    </div>
+
     <div class="col-3">
 
     </div>
