@@ -5,23 +5,27 @@
             </h1>
         </a>
     </div>
-    <div class="col-2 user animated bounceInRight">
-        <a class="main_color log_in" href="{{ @route('login') }}">
-            <span class="icon-user"></span>
-            Log in
-        </a>
-    </div>
 
     <div class="col-2 user animated bounceInRight">
-        <a class="main_color log_in" href="{{ @route('register') }}">
+        @if(Auth::check())
+        <img class="user_img text_odhlasit" src="img zdroj" alt="">
+        <a href="uprava profilu">{{ Auth::user()->name  }}</a>
+        @else
+        <a class="log_in" href="{{ @route('login') }}">
             <span class="icon-user"></span>
-            Register
+            Prihlásiť sa
         </a>
+        @endif
+    </div>
+    <div class="col-3 log_out animated bounceInRight">
+        @if(Auth::check())
+            <form action="{{ @route('logout') }}" method="post" style="display: inline">
+                @csrf
+                <button class="btn btn-link"><span class="icon-switch"></span>  <span class="text_odhlasit">odhlásiť</span></button>
+            </form>
+        @endif
     </div>
 
-    <div class="col-3">
-
-    </div>
 </div>
 
 <!-- menu -->

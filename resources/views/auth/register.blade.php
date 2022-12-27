@@ -14,7 +14,7 @@
                 <form class="px-4 py-3" action="{{ route('register') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="name" class="form-label">Meno</label>
+                        <label for="name" class="form-label">Užívateľské meno</label>
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="the_rocky" value="{{ old('name') }}">
                         @error('name')
                         <div class="invalid-feedback">

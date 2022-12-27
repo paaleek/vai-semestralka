@@ -35,6 +35,14 @@
                         @enderror
                     </div>
 
+                    <div class="mb-3 d-flex justify-content-between align-items-center">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="remember" value="true" id="customCheck1">
+                            <label class="custom-control-label text-white-50" for="customCheck1">Zapamätať si ma</label>
+                        </div>
+{{--                        <a href="request-reset-password.html">Forget your password?</a>--}}
+                    </div>
+
                     <button type="submit" class="btn btn-outline-danger mt-1 mb-1">Login</button>
 
                     <div class="text-center py-4 text-muted">

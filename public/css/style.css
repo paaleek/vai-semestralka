@@ -1,5 +1,6 @@
 :root {
     --main_red: #b23939;
+    --main_background_color: #54575D;
 }
 
 
@@ -21,7 +22,7 @@
 }
 
 body{
-    background-color: #54575D;
+    background-color: var(--main_background_color);
     color: white;
     /*font-family: 'Asap', sans-serif;*/
     font-family: 'Source Code Pro', monospace;
@@ -165,4 +166,37 @@ body{
         width: 100%;
     }
 }
+
+.user{
+    text-align: right;
+    margin-top: 0.5%;
+}
+.user_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+}
+.log_out button {
+    text-decoration: none;
+    color: white;
+    background-color: var(--main_background_color);
+}
+.log_out button {
+    margin-top: 1%;
+    text-align: left;
+    margin-right: 0;
+}
+.log_in{
+    text-decoration: none;
+    color:#b23939;
+    padding-top: 2%;
+}
+
+@media (max-width: 576px) {
+    .text_odhlasit{
+        display: none;
+    }
+}
+
 
