@@ -3,6 +3,14 @@
     --main_background_color: #54575D;
 }
 
+@font-face {
+    font-family: 'blocktasticregular';
+    src: url('../fonts/blocktastic-webfont.woff2') format('woff2'),
+    url('../fonts/blocktastic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 @font-face {
     font-family: 'above_demoregular';
@@ -197,6 +205,34 @@ body{
     .text_odhlasit{
         display: none;
     }
+}
+
+@media (max-width: 768px) {
+    .novinky_img img{
+        height: 400px;
+        width: auto;
+        margin-left: 20%;
+    }
+}
+
+@media (max-width: 576px) {
+    .novinky_img img{
+        width:250px;
+        height: auto;
+        padding-left:3%;
+        margin-left:3%;
+    }
+}
+
+.nadpis_novinka{
+    font-family: 'Major Mono Display', monospace;
+    font-size: 1.3em;
+    color: #b23939;
+    text-decoration: none;
+}
+
+.read_more {
+    font-family: 'blocktasticregular'
 }
 
 

@@ -72,18 +72,10 @@ class AdminReviewsController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(ReviewRequest $request, $id)
     {
         $review = Reviews::findOrFail($id);
-        $data = $request->validate([
-            'header' => 'required|string',
-            'main_content' => 'required|string',
-            'score' => 'required|numeric',
-            'shop' => 'nullable',
-            'trailer' => 'nullable',
-            'small_img' => 'nullable|mimes:jpeg,bmp,png',
-            'big_img' => 'nullable|mimes:jpeg,bmp,png',
-        ]);
+        $data = $request->validated();
 
         if ($request->hasFile('small_img')) {
             $file = $request->file('small_img');

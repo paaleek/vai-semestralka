@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\AdminReviewsController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReviewsController;
@@ -29,14 +31,29 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
         //Route::get('/admin/reviews/create', 'create')->name('create');
         Route::put('/admin/reviews/store', 'store')->name('store');
     });
+
+    Route::get('/admin/news/create', [AdminNewsController::class, 'create'])->name('admin.news.create');
+
+    Route::controller(AdminNewsController::class)->name('admin.news.')->group( function() {
+        Route::get('/admin/news', 'index')->name('index');
+        Route::get('/admin/news/{id}', 'show')->name('show');
+        Route::get('/admin/news/edit/{id}', 'edit')->name('edit');
+        Route::put('/admin/news/update/{id}', 'update')->name('update');
+        Route::delete('/admin/news/delete/{id}', 'destroy')->name('destroy');
+
+        Route::put('/admin/news/store', 'store')->name('store');
+    });
 });
 
-//middleware(['auth']);
-//Route::get('/login', [LoginController::class, 'index'])->name('login');
+
 
 Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
 
 Route::get('/reviews/{id}', [ReviewsController::class, 'show'])->whereNumber('id')->name('reviews.show');
+
+Route::get('/news', [NewsController::class, 'index'])->name('news');
+
+Route::get('/news/{id}', [NewsController::class, 'show'])->whereNumber('id')->name('news.show');
 
 //Route::resource('/admin/reviews', AdminReviewsController::class)->names('admin.reviews');
 

@@ -43,7 +43,7 @@
                     </li>
 
                     <li class="nav-item hvr-overline-from-center">
-                        <a class="nav-link" href="">novinky</a>
+                        <a class="nav-link" href="{{ @route('news') }}">novinky</a>
                     </li>
 
                     <li class="nav-item hvr-overline-from-center">
