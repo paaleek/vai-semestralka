@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\NewsRequest;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AdminNewsController extends Controller
 {
@@ -58,37 +59,51 @@ class AdminNewsController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $new = News::findorFail($id);
+        return view('admin.news.edit')->with(compact('new'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(NewsRequest $request, $id)
     {
-        //
+        $new = News::findOrFail($id);
+        $data = $request->validated();
+
+        if ($request->hasFile('img')) {
+            $file = $request->file('img');
+            $filename = $request->img->getClientOriginalName();
+
+            $file->move(public_path('img/news/'), $filename);
+            $data['img'] = $filename;
+        }
+
+        if ($request->hasFile('main_img')) {
+            $file = $request->file('main_img');
+            $filename = $request->main_img->getClientOriginalName();
+
+            $file->move(public_path('img/news/'), $filename);
+            $data['main_img'] = $filename;
+        }
+
+
+        $new->update($data);
+        return redirect()->route('admin.news.index')->with('message', 'New updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $new = News::findOrFail($id);
+        $new->delete();
+        if (File::exists(public_path('img/news/').$new->img)) {
+            File::delete(public_path('img/news/').$new->img);
+        }
+        if (File::exists(public_path('img/news/').$new->main_img)) {
+            File::delete(public_path('img/news/').$new->main_img);
+        }
+
+        return redirect()->route('admin.news.index')->with('message', 'New deleted successfully');
     }
 }

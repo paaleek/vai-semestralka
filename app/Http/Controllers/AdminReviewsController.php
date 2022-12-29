@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ReviewRequest;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AdminReviewsController extends Controller
 {
@@ -103,6 +104,13 @@ class AdminReviewsController extends Controller
     {
         $review = Reviews::findOrFail($id);
         $review->delete();
+
+        if (File::exists(public_path('img/reviews/').$review->small_img)) {
+            File::delete(public_path('img/reviews/').$review->small_img);
+        }
+        if (File::exists(public_path('img/reviews/').$review->big_img)) {
+            File::delete(public_path('img/reviews/').$review->big_img);
+        }
 
         return redirect()->route('admin.reviews.index')->with('message', 'Review deleted successfully');
     }
