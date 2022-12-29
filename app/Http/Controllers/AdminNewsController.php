@@ -73,7 +73,7 @@ class AdminNewsController extends Controller
 
         if ($request->hasFile('img')) {
             $file = $request->file('img');
-            $filename = $request->img->getClientOriginalName();
+            $filename = date('Y-m-d-H_i_s').'_'.$request->img->getClientOriginalName();
 
             $file->move(public_path('img/news/'), $filename);
             $data['img'] = $filename;
@@ -81,7 +81,7 @@ class AdminNewsController extends Controller
 
         if ($request->hasFile('main_img')) {
             $file = $request->file('main_img');
-            $filename = $request->main_img->getClientOriginalName();
+            $filename = date('Y-m-d-H_i_s').'_'.$request->main_img->getClientOriginalName();
 
             $file->move(public_path('img/news/'), $filename);
             $data['main_img'] = $filename;

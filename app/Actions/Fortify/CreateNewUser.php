@@ -32,10 +32,23 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        if (request()->hasFile('profile-picture')) {
+
+            $file = request()->file('profile-picture');
+            $filename = date('Y-m-d-H_i_s').'_'.$file->getClientOriginalName();
+
+            $file->move(public_path('img/users/'), $filename);
+            $user['profile_picture'] = $filename;
+            $user->save();
+
+        }
+
+        return $user;
     }
 }

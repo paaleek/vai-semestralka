@@ -11,7 +11,7 @@
             <p class="log_in ml-4">Registrácia</p>
             <div class="login">
 
-                <form class="px-4 py-3" action="{{ route('register') }}" method="post">
+                <form class="px-4 py-3" action="{{ route('register') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name" class="form-label">Užívateľské meno</label>
@@ -50,6 +50,17 @@
                         <label for="password" class="form-label">Potvrdenie hesla </label>
                         <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="*******">
                         @error('password_confirmation')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="img" class="col-form-label">Profilova fotka</label>
+                        <input type="file" name="profile-picture" class="form-control @error('img') is-invalid @enderror">
+
+                        @error('profile-picture')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

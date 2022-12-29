@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\AdminReviewsController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\Settings\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReviewsController;
@@ -43,6 +44,10 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
 
         Route::put('/admin/news/store', 'store')->name('store');
     });
+});
+
+Route::middleware(['auth'])->group( function() {
+    Route::get('/settings/profile-information', ProfileController::class)->name('user-profile-information.edit');
 });
 
 

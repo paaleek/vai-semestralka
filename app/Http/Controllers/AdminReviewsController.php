@@ -80,7 +80,7 @@ class AdminReviewsController extends Controller
 
         if ($request->hasFile('small_img')) {
             $file = $request->file('small_img');
-            $filename = $request->small_img->getClientOriginalName();
+            $filename = date('Y-m-d-H_i_s').'_'.$request->small_img->getClientOriginalName();
 
             $file->move(public_path('img/reviews/'), $filename);
             $data['small_img'] = $filename;
@@ -88,7 +88,7 @@ class AdminReviewsController extends Controller
 
         if ($request->hasFile('big_img')) {
             $file = $request->file('big_img');
-            $filename = $request->big_img->getClientOriginalName();
+            $filename = date('Y-m-d-H_i_s').'_'.$request->big_img->getClientOriginalName();
 
             $file->move(public_path('img/reviews/'), $filename);
             $data['big_img'] = $filename;

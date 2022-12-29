@@ -8,8 +8,8 @@
 
     <div class="col-2 user animated bounceInRight">
         @if(Auth::check())
-        <img class="user_img text_odhlasit" src="img zdroj" alt="">
-        <a href="uprava profilu">{{ Auth::user()->name  }}</a>
+        <img class="user_img text_odhlasit" src="{{ @asset('img/users') }}/{{ Auth::user()->profile_picture }}" alt="">
+        <a href="{{ route('user-profile-information.edit') }}">{{ Auth::user()->name  }}</a>
         @else
         <a class="log_in" href="{{ @route('login') }}">
             <span class="icon-user"></span>

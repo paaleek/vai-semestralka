@@ -40,7 +40,12 @@
                             <input type="checkbox" class="custom-control-input" name="remember" value="true" id="customCheck1">
                             <label class="custom-control-label text-white-50" for="customCheck1">Zapamätať si ma</label>
                         </div>
-{{--                        <a href="request-reset-password.html">Forget your password?</a>--}}
+
+                    <div>
+
+                    <a href="{{ route('password.request') }}">Zabudnute heslo?</a>
+                    </div>
+
                     </div>
 
                     <button type="submit" class="btn btn-outline-danger mt-1 mb-1">Login</button>
