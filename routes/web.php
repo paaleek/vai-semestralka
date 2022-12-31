@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\AdminReviewsController;
+use App\Http\Controllers\ForumController;
+use App\Http\Controllers\ForumsController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Settings\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -46,11 +48,17 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     });
 });
 
+Route::get('/forums', [ForumsController::class, 'index'])->name('forums');
+
 Route::middleware(['auth'])->group( function() {
     Route::get('/settings/profile-information', ProfileController::class)->name('user-profile-information.edit');
+
+    Route::get('/forums/create', [ForumsController::class, 'create'])->name('forums.create');
+    Route::put('/forums/store', [ForumsController::class, 'store'])->name('forums.store');
+    Route::put('/forums/store_reply/{forum_id}', [ForumsController::class, 'store_reply'])->whereNumber('forum_id')->name('forums.store_reply');
 });
 
-
+Route::get('/forums/{id}', [ForumsController::class, 'show'])->whereNumber('id')->name('forums.show');
 
 Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
 

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-
+@section('title', 'Ghydeout | Recenzie')
 @section('content')
 
     <div class="mt-3">

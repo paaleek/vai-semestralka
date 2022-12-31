@@ -1,5 +1,6 @@
 @extends('layouts.main')
 
+@section('title', 'Ghydeout | Recenzia')
 @section('content')
 
     <div class="container bg-dark mt-2 mb-2">

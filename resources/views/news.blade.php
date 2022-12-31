@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Ghydeout | Novinky')
 
 @section('content')
 

@@ -227,12 +227,40 @@ body{
 .nadpis_novinka{
     font-family: 'Major Mono Display', monospace;
     font-size: 1.3em;
-    color: #b23939;
+    color: var(--main_red);
     text-decoration: none;
 }
 
 .read_more {
     font-family: 'blocktasticregular'
+}
+.user_meno{
+    color: var(--main_red);
+}
+.time{
+    color: gray;
+}
+
+.pridaj_comment{
+    border-top-style: solid;
+    border-color: gray;
+}
+
+.jeden_reply{
+    border-top-style: solid;
+    border-color: var(--main_red);
+    margin-top: 1%;
+}
+
+.negramot{
+    width: 100%;
+    margin-top: 1%;
+}
+
+.topic{
+    color: white;
+    text-decoration: none;
+    font-size: 1.3em;
 }
 
 

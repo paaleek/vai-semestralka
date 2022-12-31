@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', 'Ghydeout | Novinka')
 @section('content')
     <div class="container pt-2">
         <div class="row">
