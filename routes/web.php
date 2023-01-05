@@ -8,6 +8,7 @@ use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumsController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Settings\ProfileController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReviewsController;
@@ -93,9 +94,4 @@ Route::get('/news/{id}', [NewsController::class, 'show'])->whereNumber('id')->na
 
 //Route::get('/admin/reviews',[AdminReviewsController::class, 'index'])->name('admin.reviews.index');
 
-
-
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');

@@ -9,7 +9,6 @@
     url('../fonts/blocktastic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -266,5 +265,107 @@ body{
     height: 100px;
     width: 384px;
 }
+.obrazok{
+    width: 100%;
+    height: 500px;
+}
+.carousel_nadpis{
+    text-align: right;
+    padding-right: 5%;
+    padding-top: 1%;
+    font-family: 'hackedregular';
+    font-size: 4em;
+}
+.carousel_content{
+    text-align: right;
+    padding-right: 5%;
+    font-family: 'Roboto Mono', monospace;
+    color: black;
+    font-size: 2em;
+    background-color: rgba(100, 99, 78, 0.3);
 
+}
+@media (max-width: 992px) {
+    .carousel_content
+    {
+        text-align: right;
+        padding-right: 5%;
+        font-family: 'Roboto Mono', monospace;
+        color: black;
+        font-size: 1.4em;
+        background-color: rgba(100, 99, 78, 0.3);
+    }
+}
+@media (max-width: 576px) {
+    .carousel_content{
+        font-size: 1em;
+    }
+}
+.carousel_buttons{
+
+    padding-top: 1%;
+    text-align: right;
+    display: inline-block;
+}
+.carousel_button{
+    margin-right: 1%;
+    border-radius: 15px;
+}
+
+.carts{
+    margin-top:-30px;
+    text-align: center;
+
+}
+.carts h5 {
+    font-family: 'blocktasticregular';
+}
+@media (max-width: 992px) {
+    .carts
+    {
+        margin-top: 0px;
+        text-align: center;
+
+
+    }
+}
+.carts a
+{ width: 100%;
+    display:block;
+    border-radius: 0;
+}
+
+.box{
+    box-sizing: border-box;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    background-clip:padding-box;
+}
+.network-w{
+    background-color: #1a1b1e;
+    padding: 2%;
+    margin-top: 1%;
+}
+.netwok{
+    text-align: center;
+}
+.like_games{
+    color: #641d22;
+    font-size: 1.3em;
+}
+.join_us{
+    font-size: 1.6em;
+}
+.emotes{
+
+    font-size: 2.5em;
+}
+.emotes a{
+    text-decoration: none;
+    color: white;
+}
+
+.n-hover:hover{
+    color:#b23939;
+}
 
