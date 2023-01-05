@@ -9,12 +9,31 @@ use Illuminate\Support\Facades\DB;
 class ReviewsController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         $reviews = Reviews::orderBy('created_at', 'DESC')->paginate(5);
         //$reviews = DB::table('reviews')->get();
 
         return view('reviews')->with(compact('reviews'));
+
+//        $reviews = Reviews::when($request->has('header'), function ($q)use($request){
+//            return $q->where('header', 'like', '%'.$request->get('header').'%');
+//        })->paginate(5);
+//        if($request->ajax()) {
+//            return view('reviews-pagination')->with(compact('reviews'));
+//        }
+//        return view('reviews')->with(compact('reviews'));
+    }
+
+    public function search(Request $request) {
+        //->orWhere('main_content', 'Like', '%'.$request->get('search').'%')
+
+        $reviews = Reviews::where('header', 'Like', '%'.$request->get('search').'%')
+        ->orderBy('created_at', 'DESC')->get();
+
+        $html = view('reviews-pagination', compact('reviews'))->render();
+
+        return response($html);
     }
 
     /**

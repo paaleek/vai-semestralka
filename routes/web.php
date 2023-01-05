@@ -61,6 +61,7 @@ Route::middleware(['auth'])->group( function() {
 Route::get('/forums/{id}', [ForumsController::class, 'show'])->whereNumber('id')->name('forums.show');
 
 Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
+Route::get('search', [ReviewsController::class, 'search'])->name('search');
 
 Route::get('/reviews/{id}', [ReviewsController::class, 'show'])->whereNumber('id')->name('reviews.show');
 

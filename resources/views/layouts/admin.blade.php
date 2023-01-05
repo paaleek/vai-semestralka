@@ -1,7 +1,7 @@
 @include('layouts.head')
 
-
-@include('layouts._menu-user-side')
+@include('layouts._menu-admin-side')
 
 @yield('content')
+
 @include('layouts.footer')
