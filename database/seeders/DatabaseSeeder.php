@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ReviewsSeeder::class);
         $this->call(NewsSeeder::class);
         $this->call(UsersSeeder::class);
+        $this->call(CarouselSeeder::class);
     }
 }

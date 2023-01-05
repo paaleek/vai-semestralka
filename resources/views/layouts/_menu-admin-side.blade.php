@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse justify-content-center menu" id="navbarNav">
             <ul class="navbar-nav ">
                 <li class="nav-item hvr-overline-from-center">
-                    <a class="nav-link" href="">domov</a>
+                    <a class="nav-link" href="{{ @route('admin.carousel.index') }}">carousel</a>
                 </li>
 
                 <li class="nav-item hvr-overline-from-center">

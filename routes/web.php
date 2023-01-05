@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCarouselController;
 use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\AdminReviewsController;
 use App\Http\Controllers\ForumController;
@@ -27,7 +28,6 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
 
     Route::controller(AdminReviewsController::class)->name('admin.reviews.')->group(function () {
         Route::get('/admin/reviews', 'index')->name('index');
-        Route::get('/admin/reviews/{id}', 'show')->name('show');
         Route::get('/admin/reviews/edit/{id}', 'edit')->name('edit');
         Route::put('/admin/reviews/update/{id}', 'update')->name('update');
         Route::delete('/admin/reviews/delete/{id}', 'destroy')->name('destroy');
@@ -39,12 +39,20 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
 
     Route::controller(AdminNewsController::class)->name('admin.news.')->group( function() {
         Route::get('/admin/news', 'index')->name('index');
-        Route::get('/admin/news/{id}', 'show')->name('show');
         Route::get('/admin/news/edit/{id}', 'edit')->name('edit');
         Route::put('/admin/news/update/{id}', 'update')->name('update');
         Route::delete('/admin/news/delete/{id}', 'destroy')->name('destroy');
-
         Route::put('/admin/news/store', 'store')->name('store');
+    });
+
+    Route::get('/admin/carousel/create', [AdminCarouselController::class, 'create'])->name('admin.carousel.create');
+
+    Route::controller(AdminCarouselController::class)->name('admin.carousel.')->group( function() {
+        Route::get('/admin/carousel', 'index')->name('index');
+        Route::get('/admin/carousel/edit/{id}', 'edit')->name('edit');
+        Route::put('/admin/carousel/update/{id}', 'update')->name('update');
+        Route::delete('/admin/carousel/delete/{id}', 'destroy')->name('destroy');
+        Route::put('/admin/carousel/store', 'store')->name('store');
     });
 });
 

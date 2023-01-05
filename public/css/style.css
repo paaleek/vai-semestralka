@@ -262,5 +262,9 @@ body{
     text-decoration: none;
     font-size: 1.3em;
 }
+.carousel-edit img{
+    height: 100px;
+    width: 384px;
+}
 
 
