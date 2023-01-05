@@ -37,7 +37,8 @@
 
                     <div class="form-group">
                         <label for="password" class="form-label">Heslo</label>
-                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="*******">
+                        <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="*******">
+                        <span id="password-strength" class="btn-outline-warning">Sila hesla: <span id="meter" ></span></span>
                         @error('password')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -83,4 +84,16 @@
         <div class="col-3"></div>
 
     </div>
+
+    <script type="text/javascript">
+        var input = document.getElementById('password');
+
+        input.addEventListener('keyup', function () {
+            var strength = checkPasswordStrength(input.value);
+            var display = document.getElementById('meter');
+            display.innerHTML= strength;
+            console.log(strength);
+        })
+
+    </script>
 @endsection

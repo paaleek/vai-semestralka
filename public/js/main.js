@@ -27,3 +27,47 @@ function validation() {
         return false;
     }
 }
+
+function checkPasswordStrength(password) {
+    var specialCharacters = "!£$%^&*_@#~?";
+    var passwordScore = 0;
+
+    // specialne znaky
+    for (var i = 0; i < password.length; i++) {
+        if (specialCharacters.indexOf(password.charAt(i)) > -1) {
+            passwordScore += 20;
+            break;
+        }
+    }
+    // cislo
+    if (/\d/.test(password))
+        passwordScore += 20;
+
+    // maly znak
+    if (/[a-z]/.test(password))
+        passwordScore += 20;
+
+    // vylky znak
+    if (/[A-Z]/.test(password))
+        passwordScore += 20;
+
+    if (password.length >= 8)
+    passwordScore += 20;
+
+    var strength = "";
+
+    if (passwordScore >= 100) {
+        strength = "Silné";
+    }
+    else if (passwordScore >= 80) {
+        strength = "Stredne silné";
+    }
+    else if (passwordScore >= 60) {
+        strength = "Slabé";
+    }
+    else {
+        strength = "Veľmi slabé heslo";
+    }
+
+    return strength;
+}
