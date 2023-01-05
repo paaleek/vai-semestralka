@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminCarouselController;
+use App\Http\Controllers\AdminForumController;
 use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\AdminReviewsController;
 use App\Http\Controllers\ForumController;
@@ -53,6 +54,15 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
         Route::put('/admin/carousel/update/{id}', 'update')->name('update');
         Route::delete('/admin/carousel/delete/{id}', 'destroy')->name('destroy');
         Route::put('/admin/carousel/store', 'store')->name('store');
+    });
+
+    Route::controller(AdminForumController::class)->name('admin.forum.')->group(function() {
+        Route::get('/admin/forum', 'index')->name('index');
+        Route::get('/admin/forum/edit/{id}', 'edit')->name('edit');
+        Route::put('/admin/forum/update/{id}', 'update')->name('update');
+        Route::delete('admin/forum/delete/{id}', 'destroy')->name('destroy');
+        Route::delete('admin/forum/replies/delete/{id}', 'destroyReply')->name('destroy_reply');
+        Route::get('/admin/forum/show_replies/{id}', 'showReplies')->name('show_replies');
     });
 });
 

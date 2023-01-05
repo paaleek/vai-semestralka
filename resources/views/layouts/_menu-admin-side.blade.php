@@ -21,7 +21,7 @@
                 </li>
 
                 <li class="nav-item hvr-overline-from-center">
-                    <a class="nav-link" href="{{ @route('forums') }}">forum</a>
+                    <a class="nav-link" href="{{ @route('admin.forum.index') }}">forum</a>
                 </li>
             </ul>
         </div>

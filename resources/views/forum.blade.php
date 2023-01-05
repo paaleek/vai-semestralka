@@ -30,7 +30,12 @@
                 <form class="mb-2" action="{{ route('forums.store_reply', $forum->id) }}" method="POST">
                     @csrf
                     @method('put')
-                    <textarea class="form-control" name="answer" id="editor1" cols="30" rows="10" >{{ old('answer') }}</textarea>
+                    <textarea class="form-control @error('answer') is-invalid @enderror" name="answer" id="editor1" cols="30" rows="10" >{{ old('answer') }}</textarea>
+                    @error('answer')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                     <input class="btn btn-danger mt-2 hvr-buzz" type="submit" value="Poslať">
                 </form>
                 @else
