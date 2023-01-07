@@ -26,8 +26,6 @@ class ReviewsController extends Controller
     }
 
     public function search(Request $request) {
-        //->orWhere('main_content', 'Like', '%'.$request->get('search').'%')
-
         $reviews = Reviews::where('header', 'Like', '%'.$request->get('search').'%')
         ->orderBy('created_at', 'DESC')->get();
 
